@@ -11,7 +11,7 @@
 	
 	$resultado->num_rows;
 	
-	if( (mysqli_query($link, $select)) && ($resultado == 0) {
+	if( (mysqli_query($link, $select)) && ($resultado == 0)){
 		
 		if( $nome != '' && $senha != '' && $paradeiro != '' && ( $senha == $senha1 )){
 			
@@ -20,15 +20,24 @@
 			$_SESSION["codinome"] = $nome;
 			$_SESSION["senha"] = $senha;
 			
-			$insert = "INSERT INTO hackers ";
+			$insert = "INSERT INTO hackers (nome_hacker, paradeiro, senha) VALUES ('$nome','$paradeiro','$senha')";
 			
-			header("Location:index.php");
+			if( mysqli_query( $link, $insert ) ){
+			
+				header("Location:index.php");
+				
+			}else{
+				
+				die( mysqli_error($link) );
+				
+			}
+			
 			
 		}else{
 			
 			die (mysqli_error($link));
 		
-		header("Location:login?erro=2.php");
+			header("Location:login?erro=2.php");
 			
 		}
 		

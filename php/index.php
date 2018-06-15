@@ -26,7 +26,7 @@
 		
 		?>
 	
-		<h1>Olá, <?=$codinome?> :)</h1>
+		<h1>Olá, <?=$_SESSION["codinome"]?></h1>
 	
 	</body>
 
