@@ -69,6 +69,7 @@
 				<tr>
 					<th>Codinome Hacker</th>
 					<th>Paradeiro Operacional</th>
+					<th>Ação</th>
 				</tr>
 			</thead>
 			
