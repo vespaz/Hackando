@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Máquina: localhost
--- Data de Criação: 13-Jun-2018 às 01:11
+-- Data de Criação: 15-Jun-2018 às 20:26
 -- Versão do servidor: 5.6.13
 -- versão do PHP: 5.4.17
 
@@ -31,10 +31,8 @@ USE `hackando`;
 CREATE TABLE IF NOT EXISTS `cidade` (
   `id_cidade` int(11) NOT NULL AUTO_INCREMENT,
   `nome_cidade` varchar(35) NOT NULL,
-  `cod_pais` int(11) NOT NULL,
   `cod_estado` int(11) NOT NULL,
   PRIMARY KEY (`id_cidade`),
-  KEY `cod_pais` (`cod_pais`),
   KEY `cod_estado` (`cod_estado`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
@@ -111,6 +109,53 @@ CREATE TABLE IF NOT EXISTS `pais` (
   PRIMARY KEY (`id_pais`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
+-- --------------------------------------------------------
+
+--
+-- Stand-in structure for view `view_componentes`
+--
+CREATE TABLE IF NOT EXISTS `view_componentes` (
+`id_componente` int(11)
+,`nome_componente` varchar(35)
+,`ip` varchar(35)
+,`cod_cidade` int(11)
+,`id_cidade` int(11)
+,`nome_cidade` varchar(35)
+,`cod_estado` int(11)
+);
+-- --------------------------------------------------------
+
+--
+-- Stand-in structure for view `view_locais`
+--
+CREATE TABLE IF NOT EXISTS `view_locais` (
+`id_pais` int(11)
+,`nome_pais` varchar(35)
+,`id_estado` int(11)
+,`nome_estado` varchar(35)
+,`cod_pais` int(11)
+,`id_cidade` int(11)
+,`nome_cidade` varchar(35)
+,`cod_estado` int(11)
+);
+-- --------------------------------------------------------
+
+--
+-- Structure for view `view_componentes`
+--
+DROP TABLE IF EXISTS `view_componentes`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `view_componentes` AS select `componentes`.`id_componente` AS `id_componente`,`componentes`.`nome_componente` AS `nome_componente`,`componentes`.`ip` AS `ip`,`componentes`.`cod_cidade` AS `cod_cidade`,`cidade`.`id_cidade` AS `id_cidade`,`cidade`.`nome_cidade` AS `nome_cidade`,`cidade`.`cod_estado` AS `cod_estado` from (`componentes` join `cidade` on((`componentes`.`cod_cidade` = `cidade`.`id_cidade`)));
+
+-- --------------------------------------------------------
+
+--
+-- Structure for view `view_locais`
+--
+DROP TABLE IF EXISTS `view_locais`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `view_locais` AS select `pais`.`id_pais` AS `id_pais`,`pais`.`nome_pais` AS `nome_pais`,`estado`.`id_estado` AS `id_estado`,`estado`.`nome_estado` AS `nome_estado`,`estado`.`cod_pais` AS `cod_pais`,`cidade`.`id_cidade` AS `id_cidade`,`cidade`.`nome_cidade` AS `nome_cidade`,`cidade`.`cod_estado` AS `cod_estado` from ((`pais` join `estado` on((`estado`.`cod_pais` = `pais`.`id_pais`))) join `cidade` on((`cidade`.`cod_estado` = `estado`.`id_estado`)));
+
 --
 -- Constraints for dumped tables
 --
@@ -119,7 +164,6 @@ CREATE TABLE IF NOT EXISTS `pais` (
 -- Limitadores para a tabela `cidade`
 --
 ALTER TABLE `cidade`
-  ADD CONSTRAINT `cidade_ibfk_1` FOREIGN KEY (`cod_pais`) REFERENCES `pais` (`id_pais`),
   ADD CONSTRAINT `cidade_ibfk_2` FOREIGN KEY (`cod_estado`) REFERENCES `estado` (`id_estado`);
 
 --

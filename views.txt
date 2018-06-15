@@ -1,0 +1,30 @@
+CREATE VIEW 
+			view_locais		AS
+			
+SELECT 	* 
+
+	FROM pais INNER JOIN estado 
+	
+	ON estado.cod_pais = pais.id_pais
+	
+	INNER JOIN cidade
+	
+	ON cidade.cod_estado = estado.id_estado;
+	
+	
+	
+----------------------------------------------------------------------------------------------------------------
+
+CREATE VIEW 
+			view_componentes	AS
+			
+SELECT 	* 
+
+	FROM	componentes INNER JOIN 	cidade
+	
+	ON componentes.cod_cidade = cidade.id_cidade; 
+	
+	
+	
+----------------------------------------------------------------------------------------------------------------
+
