@@ -41,6 +41,8 @@
 			</form>
 		
 		</fieldset>
+		
+		<a href="cadastro_hacker.php">Cadastre-se</a>
 	
 	</body>
 

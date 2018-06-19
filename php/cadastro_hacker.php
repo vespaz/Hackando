@@ -55,6 +55,8 @@
 			</form>
 		
 		</fieldset>
+		
+		<a href="login.php">Fazer Login</a>
 	
 	</body>
 
