@@ -35,14 +35,14 @@
 					$pais = $_POST["pais"];
 					$estado = $_POST["estado"];
 					
-					$insert = "INSERT INTO pais (cod_pais, nome_estado) VALUES ('$pais', '$estado')";
+					$insert = "INSERT INTO estado (cod_pais, nome_estado) VALUES ('$pais', '$estado')";
 					
 				}else if( $cod == "3" ){
 					
 					$estado = $_POST["estado"];
 					$cidade = $_POST["cidade"];
 					
-					$insert = "INSERT INTO pais (cod_estado, nome_cidade) VALUES ('$estado', '$cidade')";
+					$insert = "INSERT INTO cidade (cod_estado, nome_cidade) VALUES ('$estado', '$cidade')";
 					
 				}
 				

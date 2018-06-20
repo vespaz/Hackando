@@ -7,9 +7,9 @@
 		<div class="link">
 		
 			<a href="locais.php">Cadastrar um local</a>
-			<a href="componentes.php">Cadastrar um componente</a>
-			<a href="invasoes.php">Cadastrar uma invasão</a>
-			<a href="logout.php">Fazer Logout</a>
+			<a href="form_componentes.php">Cadastrar um componente</a>
+			<a href="form_invasoes.php">Cadastrar uma invasão</a>
+			<a href="form_logout.php">Fazer Logout</a>
 		
 		</div>
 		
@@ -20,7 +20,7 @@
 			<a href="lista_hackers.php">Listar Hackers</a>
 			<a href="lista_locais.php">Listar Locais</a>
 			<a href="lista_componentes.php">Listar Componentes</a>
-			<a href="ilista_nvasoes.php">Listar Invasões</a>
+			<a href="lista_invasoes.php">Listar Invasões</a>
 		
 		</div>
 		
