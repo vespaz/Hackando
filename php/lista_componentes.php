@@ -13,7 +13,7 @@
 	
 		<meta charset="UTF-8" />
 		<title>Página de Listagem de Componentes</title>
-	
+		<link type="text/css" rel="stylesheet" href="../css.css" />
 	</head>
 	
 	<body>
@@ -89,7 +89,7 @@
 						echo "<tr>";
 							echo "<td>" . $linha['nome_componente'] . "</td>";
 							echo "<td>" . $linha['ip'] . "</td>";
-							echo "<td>" . $linha['cod_cidade'] . "</td>";
+							echo "<td>" . $linha['nome_cidade'] . "</td>";
 							
 							
 							
