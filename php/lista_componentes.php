@@ -12,7 +12,7 @@
 	<head>
 	
 		<meta charset="UTF-8" />
-		<title>Página de Listagem de Hackers</title>
+		<title>Página de Listagem de Componentes</title>
 	
 	</head>
 	
@@ -80,7 +80,7 @@
 			
 			<tbody>
 				<?php 
-					$select = "SELECT * FROM view_locais";
+					$select = "SELECT * FROM view_componentes";
 					
 					$resultado = mysqli_query($link, $select) or die(mysqli_error($link));
 					
@@ -93,6 +93,7 @@
 							
 							
 							
+							echo "<td> <a href='alterar_componente.php?id_componente=" . $linha['id_componente'] . "'>Editar</a></td>";
 							echo "<td> <a href='remove_componente.php?id_componente=" . $linha['id_componente'] . "'>Excluir</a></td>";
 						echo "</tr>";
 					
