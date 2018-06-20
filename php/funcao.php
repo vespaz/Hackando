@@ -9,7 +9,7 @@
 			<a href="locais.php">Cadastrar um local</a>
 			<a href="form_componentes.php">Cadastrar um componente</a>
 			<a href="form_invasoes.php">Cadastrar uma invasão</a>
-			<a href="form_logout.php">Fazer Logout</a>
+			<a href="logout.php">Fazer Logout</a>
 		
 		</div>
 		

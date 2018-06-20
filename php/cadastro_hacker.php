@@ -50,7 +50,7 @@
 				<label>Confirme a senha: </label>
 				<input type="password" name="senha1" />
 				
-				<input type="submit" value="Login" />
+				<input type="submit" value="Cadastrar-se" />
 				<input type="reset" value="Limpar" />
 			
 			</form>
