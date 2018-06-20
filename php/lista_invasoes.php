@@ -25,13 +25,23 @@
 		<fieldset>
 			<form action="lista_hacker.php" method="post">
 				
-				<label>Filtar por : </label>
-				<input type="text" name="filtro" />
+				<label>Filtar por Nome Hacker: </label>
+				<input type="text" name="filtroNomeHacker" />
 				<br />
 				<br />
 				
-				<label>: </label>
-				<input type="text" name="filtro" />
+				<label>Filtar por Nome Componente: </label>
+				<input type="text" name="filtroNomeComponente" />
+				<br />
+				<br />
+				
+				<label>Filtar por IP: </label>
+				<input type="text" name="filtroIP" />
+				<br />
+				<br />
+				
+				<label>Filtar por Status: </label>
+				<input type="text" name="filtroStatus" />
 				<br />
 				<br />
 				
