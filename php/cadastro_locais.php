@@ -3,9 +3,6 @@
 <?php
 
 	include "conexao.php";
-	include "funcao.php";
-	
-	valida_session();
 
 ?>
 
@@ -15,18 +12,17 @@
 	
 		<meta charset="UTF-8" />
 		<title>Página de Cadastro de Locais</title>
+		<link type="text/css" rel="stylesheet" href="../css.css" />
 	
 	</head>
 	
 	<body>
 	
 		<?php
-		
-			menu();
 			
-			if( isset( $_GET["cod"] ) ){
+			if( isset( $_POST["cod"] ) ){
 				
-				$cod = $_GET["cod"];
+				$cod = $_POST["cod"];
 				
 				if( $cod == "1" ){
 					
@@ -47,6 +43,16 @@
 					$cidade = $_POST["cidade"];
 					
 					$insert = "INSERT INTO pais (cod_estado, nome_cidade) VALUES ('$estado', '$cidade')";
+					
+				}
+				
+				if( mysqli_query( $link, $insert ) ){
+					
+					header("Location: lista_locais.php");
+					
+				}else{
+					
+					die( mysqli_error($link) );
 					
 				}
 				

@@ -15,6 +15,7 @@
 	
 		<meta charset="UTF-8" />
 		<title>Página de Cadastro de Locais</title>
+		<link type="text/css" rel="stylesheet" href="../css.css" />
 	
 	</head>
 	
@@ -23,6 +24,10 @@
 		<?php
 		
 			menu();
+			
+			$select = "SELECT * FROM view_locais";
+			
+			$resultado = mysqli_query( $link, $select );
 		
 			if( !isset( $_GET["cod"] ) ){
 		
@@ -44,15 +49,15 @@
 			
 		<?php
 		
-			$select = "SELECT * FROM view_locais";
-			
-			$resultado = mysqli_query( $link, $select );
-		
 			}else if( $_GET["cod"] == "1" ){
 			
 		?>
 		
-			<form action="cadastra_locais.php" method="post" >
+		<fieldset>
+		
+			<legend>Cadastrando um país</legend>
+		
+			<form action="cadastro_locais.php" method="post" >
 			
 				<label>Nome do País</label>
 				<input type="text" name="pais" /><br />
@@ -62,6 +67,8 @@
 				<input type="submit" value="Cadastrar" />
 			
 			</form>
+			
+		</fieldset>
 		
 		<?php
 		
@@ -69,7 +76,11 @@
 		
 		?>
 		
-			<form action="cadastra_locais.php" method="post" >
+		<fieldset>
+		
+			<legend>Cadastrando um estado</legend>
+		
+			<form action="cadastro_locais.php" method="post" >
 			
 				<label>Nome do País</label>
 				<select name="pais">
@@ -94,6 +105,8 @@
 				<input type="submit" value="Cadastrar" />
 			
 			</form>
+			
+		</fieldset>
 		
 		<?php
 		
@@ -101,7 +114,11 @@
 		
 		?>
 		
-			<form action="cadastra_locais.php" method="post" >
+		<fieldset>
+		
+			<legend>Cadastrando uma cidade</legend>
+		
+			<form action="cadastro_locais.php" method="post" >
 			
 				<label>Nome do País / Estado</label>
 				<select name="estado">
@@ -128,11 +145,17 @@
 			
 			</form>
 		
+		</fieldset>
+		
 		<?php
 		
 			}
 		
 		?>
+		
+		<br />
+		
+		<a href="locais.php">Cadastre outro local</a>
 	
 	</body>
 
