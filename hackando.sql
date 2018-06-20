@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Máquina: localhost
--- Data de Criação: 15-Jun-2018 às 20:26
+-- Data de Criação: 19-Jun-2018 às 23:57
 -- Versão do servidor: 5.6.13
 -- versão do PHP: 5.4.17
 
@@ -126,6 +126,25 @@ CREATE TABLE IF NOT EXISTS `view_componentes` (
 -- --------------------------------------------------------
 
 --
+-- Stand-in structure for view `view_invasoes`
+--
+CREATE TABLE IF NOT EXISTS `view_invasoes` (
+`id_invasoes` int(11)
+,`cod_hacker` int(11)
+,`cod_componente` int(11)
+,`status` varchar(35)
+,`id_hacker` int(11)
+,`nome_hacker` varchar(35)
+,`paradeiro` varchar(35)
+,`senha` varchar(60)
+,`id_componente` int(11)
+,`nome_componente` varchar(35)
+,`ip` varchar(35)
+,`cod_cidade` int(11)
+);
+-- --------------------------------------------------------
+
+--
 -- Stand-in structure for view `view_locais`
 --
 CREATE TABLE IF NOT EXISTS `view_locais` (
@@ -146,6 +165,15 @@ CREATE TABLE IF NOT EXISTS `view_locais` (
 DROP TABLE IF EXISTS `view_componentes`;
 
 CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `view_componentes` AS select `componentes`.`id_componente` AS `id_componente`,`componentes`.`nome_componente` AS `nome_componente`,`componentes`.`ip` AS `ip`,`componentes`.`cod_cidade` AS `cod_cidade`,`cidade`.`id_cidade` AS `id_cidade`,`cidade`.`nome_cidade` AS `nome_cidade`,`cidade`.`cod_estado` AS `cod_estado` from (`componentes` join `cidade` on((`componentes`.`cod_cidade` = `cidade`.`id_cidade`)));
+
+-- --------------------------------------------------------
+
+--
+-- Structure for view `view_invasoes`
+--
+DROP TABLE IF EXISTS `view_invasoes`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `view_invasoes` AS select `invasoes`.`id_invasoes` AS `id_invasoes`,`invasoes`.`cod_hacker` AS `cod_hacker`,`invasoes`.`cod_componente` AS `cod_componente`,`invasoes`.`status` AS `status`,`hackers`.`id_hacker` AS `id_hacker`,`hackers`.`nome_hacker` AS `nome_hacker`,`hackers`.`paradeiro` AS `paradeiro`,`hackers`.`senha` AS `senha`,`componentes`.`id_componente` AS `id_componente`,`componentes`.`nome_componente` AS `nome_componente`,`componentes`.`ip` AS `ip`,`componentes`.`cod_cidade` AS `cod_cidade` from ((`invasoes` join `hackers` on((`invasoes`.`cod_hacker` = `hackers`.`id_hacker`))) join `componentes` on((`invasoes`.`cod_componente` = `componentes`.`id_componente`)));
 
 -- --------------------------------------------------------
 
