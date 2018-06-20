@@ -23,19 +23,15 @@
 		?>
 		
 		<fieldset>
-			<form action="lista_componente.php" method="post">
+			<form action="lista_hacker.php" method="post">
 				
-				<label>Filtar por componente: </label>
-				<input type="text" name="filtroComponente" />
+				<label>Filtar por : </label>
+				<input type="text" name="filtro" />
 				<br />
 				<br />
 				
-				<label>Filtar por endereço IP: </label>
-				<input type="text" name="filtroEndIP" />
-				<br />
-				<br />
-				<label>Filtar por localização: </label>
-				<input type="text" name="filtroLoc" />
+				<label>: </label>
+				<input type="text" name="filtro" />
 				<br />
 				<br />
 				
@@ -45,7 +41,7 @@
 			
 			<br />
 			
-			<!-- <form action="lista_componentes.php" method="post" name="ordenarComponentes">
+			<!-- <form action="lista_invasoes.php" method="post" name="ordenarInvasoes">
 				
 				<label>Ordenar</label>
 				
@@ -56,11 +52,17 @@
 					<option value="id_a_z">ID (Crescente)</option>
 					<option value="id_z_a">ID (Descrecente)</option>
 					
-					<option value="componente_a_z">Componente (A->Z)</option>
-					<option value="componente_z_a">Componente (Z->A)</option>
+					<option value="nomeHacker_a_z">Nome Hacker (A->Z)</option>
+					<option value="nomeHacker_z_a">Nome Hacker (Z->A)</option>
 					
-					<option value="end_a_z">Endereço IP (A->Z)</option>
-					<option value="end_z_a">Endereço IP (Z->A)</option>
+					<option value="nomeComponente_a_z">Nome Componente (A->Z)</option>
+					<option value="nomeComponente_z_a">Nome Componente (Z->A)</option>
+					
+					<option value="ip_a_z">IP (A->Z)</option>
+					<option value="ip_z_a">IP (Z->A)</option>
+					
+					<option value="status_a_z">Status (A->Z)</option>
+					<option value="status_z_a">Status (Z->A)</option>
 					
 				</select>
 				
@@ -71,29 +73,31 @@
 		<table>
 			<thead>
 				<tr>
-					<th>Componente</th>
-					<th>Endereço IP</th>
-					<th>Localização</th>
+					<th>Nome Hacker</th>
+					<th>Nome Componente</th>
+					<th>IP</th>
+					<th>Status</th>
 					<th>Ação</th>
 				</tr>
 			</thead>
 			
 			<tbody>
 				<?php 
-					$select = "SELECT * FROM view_locais";
+					$select = "SELECT * FROM view_invasoes";
 					
 					$resultado = mysqli_query($link, $select) or die(mysqli_error($link));
 					
 					while($linha = mysqli_fetch_array($resultado)){
 					
 						echo "<tr>";
+							echo "<td>" . $linha['nome_hacker'] . "</td>";
 							echo "<td>" . $linha['nome_componente'] . "</td>";
 							echo "<td>" . $linha['ip'] . "</td>";
-							echo "<td>" . $linha['cod_cidade'] . "</td>";
+							echo "<td>" . $linha['status'] . "</td>";
 							
 							
 							
-							echo "<td> <a href='remove_componente.php?id_componente=" . $linha['id_componente'] . "'>Excluir</a></td>";
+							echo "<td> <a href='remove_invasoes.php?id_invasoes=" . $linha['id_invasoes'] . "'>Excluir</a></td>";
 						echo "</tr>";
 					
 					}
