@@ -24,10 +24,6 @@
 		<?php
 		
 			menu();
-			
-			$select = "SELECT * FROM view_locais";
-			
-			$resultado = mysqli_query( $link, $select );
 		
 			if( !isset( $_GET["cod"] ) ){
 		
@@ -73,6 +69,10 @@
 		<?php
 		
 			}else if( $_GET["cod"] == "2" ){
+				
+				$select = "SELECT * FROM pais";
+			
+				$resultado = mysqli_query( $link, $select );
 		
 		?>
 		
@@ -89,7 +89,7 @@
 					
 						while( $linha = mysqli_fetch_array( $resultado )){
 						
-							echo "<option value='" . $linha['nome_pais'] . "' >" . $linha['nome_pais'] . "</option>";
+							echo "<option value='" . $linha['id_pais'] . "' >" . $linha['nome_pais'] . "</option>";
 						
 						}
 					
@@ -111,6 +111,10 @@
 		<?php
 		
 			}else if( $_GET["cod"] == "3" ){
+				
+				$select = "SELECT * FROM pais INNER JOIN estado WHERE estado.cod_pais = pais.id_pais";
+				
+				$resultado = mysqli_query( $link, $select );
 		
 		?>
 		
@@ -127,7 +131,7 @@
 					
 						while( $linha = mysqli_fetch_array( $resultado )){
 						
-							echo "<option value='" . $linha['cod_estado'] . "' >" . $linha['nome_pais'] . " / "
+							echo "<option value='" . $linha['id_estado'] . "' >" . $linha['nome_pais'] . " / "
 							. $linha['nome_estado'] . "</option>";
 						
 						}
