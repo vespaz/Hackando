@@ -13,7 +13,7 @@
 	
 		<meta charset="UTF-8" />
 		<title>Página de Listagem de Hackers</title>
-	
+		<link type="text/css" rel="stylesheet" href="../css.css" />
 	</head>
 	
 	<body>
@@ -69,7 +69,6 @@
 				<tr>
 					<th>Codinome Hacker</th>
 					<th>Paradeiro Operacional</th>
-					<th>Ação</th>
 				</tr>
 			</thead>
 			
@@ -86,8 +85,6 @@
 							echo "<td>" . $linha['paradeiro'] . "</td>";
 							
 							
-							
-							echo "<td> <a href='remove_hacker.php?id_hacker=" . $linha['id_hacker'] . "'>Excluir</a></td>";
 						echo "</tr>";
 					
 					}

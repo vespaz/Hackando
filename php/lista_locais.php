@@ -13,7 +13,7 @@
 	
 		<meta charset="UTF-8" />
 		<title>Página de Listagem de Locais</title>
-	
+		<link type="text/css" rel="stylesheet" href="../css.css" />
 	</head>
 	
 	<body>
@@ -91,6 +91,8 @@
 							echo "<td>" . $linha['nome_pais'] . "</td>";
 							echo "<td>" . $linha['nome_estado'] . "</td>";
 							echo "<td>" . $linha['nome_cidade'] . "</td>";
+							
+							echo "<td> <a href='form_altera_locais.php?id_pais=" . $linha['id_pais'] . "'>Editar</a></td>";
 							
 						echo "</tr>";
 					
