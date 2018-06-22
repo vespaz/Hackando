@@ -13,14 +13,15 @@
 
 			include "conexao.php";
 			include "funcao.php";
-
-			$id = $_GET["id"];
-			
-			
-			$delete = "DELETE FROM view_componentes WHERE id_componentes = '$id'";
-			
-			echo $delete;
 			menu();
+			
+			$id = $_GET["id_componente"];
+			
+			
+			$delete = "DELETE FROM componentes WHERE id_componente = '$id'";
+			
+			// echo $delete;
+			
 			
 			if(mysqli_query($link, $delete)){
 				
