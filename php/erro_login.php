@@ -6,6 +6,7 @@
 	
 		<meta charset="UTF-8" />
 		<title>Página de erro Login</title>
+		<link type="text/css" rel="stylesheet" href="../css.css" />
 	
 	</head>
 	

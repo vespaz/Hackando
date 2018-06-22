@@ -32,7 +32,7 @@
 	
 		<h1>Realize seu cadastro</h1>
 		
-		<fieldset>
+		<fieldset class="cadastro">
 		
 			<legend>Dados</legend>
 		

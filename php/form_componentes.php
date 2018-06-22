@@ -31,7 +31,7 @@
 		
 		?>
 		
-		<fieldset>
+		<fieldset class="cadastro">
 		
 			<legend>Cadastro de componente</legend>
 			

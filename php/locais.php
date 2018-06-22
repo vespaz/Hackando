@@ -49,7 +49,7 @@
 			
 		?>
 		
-		<fieldset>
+		<fieldset class="cadastro">
 		
 			<legend>Cadastrando um país</legend>
 		
@@ -82,13 +82,13 @@
 		
 			}else if( $_GET["cod"] == "2" ){
 				
-				$select = "SELECT * FROM pais";
+				$select = "SELECT * FROM pais ORDER BY id_pais DESC";
 			
 				$resultado = mysqli_query( $link, $select );
 		
 		?>
 		
-		<fieldset>
+		<fieldset class="cadastro">
 		
 			<legend>Cadastrando um estado</legend>
 		
@@ -136,13 +136,13 @@
 		
 			}else if( $_GET["cod"] == "3" ){
 				
-				$select = "SELECT * FROM pais INNER JOIN estado WHERE estado.cod_pais = pais.id_pais";
+				$select = "SELECT * FROM pais INNER JOIN estado WHERE estado.cod_pais = pais.id_pais  ORDER BY id_estado DESC";
 				
 				$resultado = mysqli_query( $link, $select );
 		
 		?>
 		
-		<fieldset>
+		<fieldset class="cadastro">
 		
 			<legend>Cadastrando uma cidade</legend>
 		

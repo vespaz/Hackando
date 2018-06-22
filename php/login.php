@@ -24,7 +24,7 @@
 	
 		<h1>Realize seu login</h1>
 		
-		<fieldset>
+		<fieldset class="cadastro">
 		
 			<legend>Dados</legend>
 		

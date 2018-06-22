@@ -27,7 +27,7 @@
 		
 		?>
 		
-		<fieldset>
+		<fieldset class="cadastro">
 		
 			<legend>Cadastro de invasões</legend>
 			

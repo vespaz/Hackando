@@ -30,12 +30,32 @@
 					
 					$insert = "INSERT INTO pais (nome_pais) VALUES ('$pais')";
 					
+					if( mysqli_query( $link, $insert ) ){
+					
+						header("Location: locais.php?cod=2");
+						
+					}else{
+						
+						die( mysqli_error($link) );
+						
+					}
+					
 				}else if( $cod == "2" ){
 					
 					$pais = $_POST["pais"];
 					$estado = $_POST["estado"];
 					
 					$insert = "INSERT INTO estado (cod_pais, nome_estado) VALUES ('$pais', '$estado')";
+					
+					if( mysqli_query( $link, $insert ) ){
+					
+						header("Location: locais.php?cod=3");
+						
+					}else{
+						
+						die( mysqli_error($link) );
+						
+					}
 					
 				}else if( $cod == "3" ){
 					
@@ -44,15 +64,15 @@
 					
 					$insert = "INSERT INTO cidade (cod_estado, nome_cidade) VALUES ('$estado', '$cidade')";
 					
-				}
-				
-				if( mysqli_query( $link, $insert ) ){
+					if( mysqli_query( $link, $insert ) ){
 					
-					header("Location: lista_locais.php");
-					
-				}else{
-					
-					die( mysqli_error($link) );
+						header("Location: lista_locais.php");
+						
+					}else{
+						
+						die( mysqli_error($link) );
+						
+					}
 					
 				}
 				
