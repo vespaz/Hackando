@@ -30,20 +30,31 @@
 		
 			<form action="valida_login.php" method="post" >
 			
-				<label>Codinome Hacker: </label>
-				<input type="text" name="nome" />
+				<div class="label">
 				
-				<label>Senha: </label>
-				<input type="password" name="senha" />
+					<label>Codinome Hacker: </label> <br /><br />
+					<label>Senha: </label>
 				
-				<input type="submit" value="Login" />
+				</div>
+				
+				<div class="input">
+				
+					<input type="text" name="nome" /><br /><br />
+					<input type="password" name="senha" />
+				
+				</div>
+				
+				<br />
+				<br />
+				
+				<input type="submit" value="Logar" />
 				<input type="reset" value="Limpar" />
 			
 			</form>
 		
 		</fieldset>
 		
-		<a href="cadastro_hacker.php">Cadastre-se</a>
+		<a class="link_c" href="cadastro_hacker.php">Cadastre-se</a>
 	
 	</body>
 

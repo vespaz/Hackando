@@ -33,52 +33,66 @@
 			
 			<form action="cadastro_invasoes.php" method="post" >
 			
-				<label>Hacker que invadiu</label>
-				<select name="cod_hacker" >
+				<div class="label">
 				
-					<?php
-					
-						$select = "SELECT * FROM hackers";
-			
-						$resultado = mysqli_query( $link, $select );
+					<label>Hacker que invadiu: </label>	<br /><br />
+					<label>Componente Hackado: </label>	<br /><br />
+					<label>Status de Hackamento: </label>
+				
+				</div>
+				
+				<div class="input">
+				
+					 <select name="cod_hacker" >
+				
+						<?php
 						
-						while( $linha = mysqli_fetch_array( $resultado ) ){
-					
-							echo "<option value='" . $linha['id_hacker'] . "' > " . $linha['nome_hacker'] . " </option>";
+							$select = "SELECT * FROM hackers";
+				
+							$resultado = mysqli_query( $link, $select );
+							
+							while( $linha = mysqli_fetch_array( $resultado ) ){
 						
-						}
-					
-					?>
-				
-				</select>
-				
-				<label>Componente Hackado</label>
-				<select name="cod_comp" >
-				
-					<?php
-					
-						$select = "SELECT * FROM componentes";
-			
-						$resultado = mysqli_query( $link, $select );
+								echo "<option value='" . $linha['id_hacker'] . "' > " . $linha['nome_hacker'] . " </option>";
+							
+							}
 						
-						while( $linha = mysqli_fetch_array( $resultado ) ){
+						?>
 					
-							echo "<option value='" . $linha['id_componente'] . "' > " . $linha['nome_componente'] .
-							" / " . $linha['ip'] . " </option>";
+					</select><br /><br />
+					
+					
+					<select name="cod_comp" >
+				
+						<?php
 						
-						}
+							$select = "SELECT * FROM componentes";
+				
+							$resultado = mysqli_query( $link, $select );
+							
+							while( $linha = mysqli_fetch_array( $resultado ) ){
+						
+								echo "<option value='" . $linha['id_componente'] . "' > " . $linha['nome_componente'] .
+								" / " . $linha['ip'] . " </option>";
+							
+							}
+						
+						?>
 					
-					?>
+					</select> <br /><br />
+					
+					
+					<select name="status" >
 				
-				</select>
+						<option value="Online" >  Online (êxito) </option>
+						<option value="Offline" > Offline (falha) </option>
+					
+					</select>
 				
-				<label>Status de Hackamento</label>
-				<select name="status" >
+				</div>
 				
-					<option value="Online" > Online (êxito) </option>
-					<option value="Offline" > Offline (falha) </option>
-				
-				</select>
+				<br />
+				<br />
 			
 				<input type="submit" value="Cadastrar" />
 			

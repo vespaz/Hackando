@@ -38,17 +38,26 @@
 		
 			<form action="valida_cadastro.php" method="post" >
 			
-				<label>Codinome Hacker: </label>
-				<input type="text" name="nome"/>
+				<div class="label">
 				
-				<label>Paradeiro Operacional: </label>
-				<input type="text" name="paradeiro" placeholder="LulzSec, Anonymous" />
+					<label>Codinome Hacker: 		</label> <br /><br />
+					<label>Paradeiro Operacional: 	</label> <br /><br />
+					<label>Senha:					</label> <br /><br />
+					<label>Confirme a senha: 		</label>
 				
-				<label>Senha: </label>
-				<input type="password" name="senha" />
+				</div>
 				
-				<label>Confirme a senha: </label>
-				<input type="password" name="senha1" />
+				<div class="input">
+				
+					<input type="text" name="nome"/>										<br /><br />
+					<input type="text" name="paradeiro" placeholder="LulzSec, Anonymous" /> <br /><br />
+					<input type="password" name="senha" /> 									<br /><br />
+					<input type="password" name="senha1" />
+				
+				</div>
+				
+				<br />
+				<br />
 				
 				<input type="submit" value="Cadastrar-se" />
 				<input type="reset" value="Limpar" />
@@ -57,7 +66,7 @@
 		
 		</fieldset>
 		
-		<a href="login.php">Fazer Login</a>
+		<a class="link_c" href="login.php">Fazer Login</a>
 	
 	</body>
 

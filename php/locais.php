@@ -35,9 +35,9 @@
 				
 				<div class="link">
 				
-					<a href="locais.php?cod=1">Cadastrar um País</a> <br />
-					<a href="locais.php?cod=2">Cadastrar um Estado</a> <br />
-					<a href="locais.php?cod=3">Cadastrar uma Cidade</a>
+					<a class="locais" href="locais.php?cod=1">Cadastrar um País</a> 	<br />
+					<a class="locais" href="locais.php?cod=2">Cadastrar um Estado</a> 	<br />
+					<a class="locais" href="locais.php?cod=3">Cadastrar uma Cidade</a>
 					
 				</div>
 			
@@ -55,10 +55,22 @@
 		
 			<form action="cadastro_locais.php" method="post" >
 			
-				<label>Nome do País</label>
-				<input type="text" name="pais" /><br />
+				<div class="label">
+				
+					<label>Nome do País:</label>
+				
+				</div>
+				
+				<div class="input">
+				
+					<input type="text" name="pais" />
+				
+				</div>
 				
 				<input type="hidden" name="cod" value="<?=$_GET["cod"]?>" />
+				
+				<br />
+				<br />
 				
 				<input type="submit" value="Cadastrar" />
 			
@@ -82,25 +94,37 @@
 		
 			<form action="cadastro_locais.php" method="post" >
 			
-				<label>Nome do País</label>
-				<select name="pais">
+				<div class="label">
 				
-					<?php
-					
-						while( $linha = mysqli_fetch_array( $resultado )){
+					<label>Nome do País:</label> 	<br /><br />
+					<label>Nome do Estado:</label>
+				
+				</div>
+				
+				<div class="input">
+				
+					<select name="pais">
+				
+						<?php
 						
-							echo "<option value='" . $linha['id_pais'] . "' >" . $linha['nome_pais'] . "</option>";
+							while( $linha = mysqli_fetch_array( $resultado )){
+							
+								echo "<option value='" . $linha['id_pais'] . "' >" . $linha['nome_pais'] . "</option>";
+							
+							}
 						
-						}
+						?>
+				
+					</select>	<br /><br />
 					
-					?>
+					<input type="text" name="estado" />
 				
-				</select> <br />
-				
-				<label>Nome do Estado</label>
-				<input type="text" name="estado" /><br />
+				</div>
 				
 				<input type="hidden" name="cod" value="<?=$_GET["cod"]?>" />
+				
+				<br />
+				<br />
 				
 				<input type="submit" value="Cadastrar" />
 			
@@ -124,26 +148,38 @@
 		
 			<form action="cadastro_locais.php" method="post" >
 			
-				<label>Nome do País / Estado</label>
-				<select name="estado">
+				<div class="label">
 				
-					<?php
-					
-						while( $linha = mysqli_fetch_array( $resultado )){
+					<label>Nome do País / Estado: </label> 	<br /><br />
+					<label>Nome da Cidade: </label>
+				
+				</div>
+				
+				<div class="input">
+				
+					<select name="estado">
+				
+						<?php
 						
-							echo "<option value='" . $linha['id_estado'] . "' >" . $linha['nome_pais'] . " / "
-							. $linha['nome_estado'] . "</option>";
+							while( $linha = mysqli_fetch_array( $resultado )){
+							
+								echo "<option value='" . $linha['id_estado'] . "' >" . $linha['nome_pais'] . " / "
+								. $linha['nome_estado'] . "</option>";
+							
+							}
 						
-						}
+						?>
 					
-					?>
+					</select>	<br /><br />
+					
+					<input type="text" name="cidade" />
 				
-				</select> <br />
-				
-				<label>Nome da Cidade</label>
-				<input type="text" name="cidade" /><br />
+				</div>
 				
 				<input type="hidden" name="cod" value="<?=$_GET["cod"]?>" />
+				
+				<br />
+				<br />
 				
 				<input type="submit" value="Cadastrar" />
 			
@@ -158,9 +194,18 @@
 		?>
 		
 		<br />
+		<?php
 		
-		<a href="locais.php">Cadastre outro local</a>
-	
+			if( isset($_GET["cod"]) ){
+		
+		?>
+			<a class="link_c" href="locais.php">Cadastre outro local</a>
+			
+		<?php
+		
+			}
+			
+		?>
 	</body>
 
 </html>

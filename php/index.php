@@ -15,6 +15,7 @@
 	
 		<meta charset="UTF-8" />
 		<title>Página inicial</title>
+		<link type="text/css" rel="stylesheet" href="../css.css" />
 	
 	</head>
 	

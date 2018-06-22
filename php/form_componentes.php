@@ -37,27 +37,37 @@
 			
 			<form action="cadastro_componente.php" method="post" >
 			
-				<label>Componente:</label>
-				<input type="text" name="componente" placeholder="Câmera, Servidor, Estação Espacial" />
+				<div class="label">
 				
-				<label>IP:</label>
-				<input type="text" name="ip" placeholder="192.000.000.000" />
+					<label>Componente:</label>				<br /><br />
+					<label>IP:</label>						<br /><br />
+					<label>País - Estado / Cidade:</label>
 				
-				<label>País - Estado / Cidade:</label>
-				<select name="cidade" >
+				</div>
 				
-					<?php
-					
-						while( $linha = mysqli_fetch_array( $resultado )){
+				<div class="input">
+				
+					<input type="text" name="componente" placeholder="Câmera, Servidor, Estação Espacial" /> <br /><br />
+					<input type="text" name="ip" placeholder="192.000.000.000" />							 <br /><br />
+					<select name="cidade" >
+				
+						<?php
 						
-							echo "<option value='" . $linha['id_cidade'] . "' >" . $linha['nome_pais'] . " - " .
-							$linha['nome_estado'] . " / " . $linha['nome_cidade'] . "</option>";
+							while( $linha = mysqli_fetch_array( $resultado )){
+							
+								echo "<option value='" . $linha['id_cidade'] . "' >" . $linha['nome_pais'] . " - " .
+								$linha['nome_estado'] . " / " . $linha['nome_cidade'] . "</option>";
+							
+							}
 						
-						}
-					
-					?>
+						?>
 				
-				</select>
+					</select>
+				
+				</div>
+				
+				<br />
+				<br />
 				
 				<input type="submit" value="Cadastrar Componente" />
 			

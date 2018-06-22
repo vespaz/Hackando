@@ -6,10 +6,11 @@
 		
 		<div class="link">
 		
-			<a href="locais.php">Cadastrar um local</a> |
-			<a href="form_componentes.php">Cadastrar um componente</a> |
-			<a href="form_invasoes.php">Cadastrar uma invasão</a> |
-			<a href="logout.php">Fazer Logout</a>
+			<a class="link_i" href="index.php">Início</a> <br /><br />
+			<a class="link" href="locais.php">Cadastrar um local</a> |
+			<a class="link" href="form_componentes.php">Cadastrar um componente</a> |
+			<a class="link" href="form_invasoes.php">Cadastrar uma invasão</a> |
+			<a class="link_r" href="logout.php">Fazer Logout</a>
 		
 		</div>
 		
@@ -17,10 +18,10 @@
 		
 		<div class="link">
 		
-			<a href="lista_hackers.php">Listar Hackers</a> |
-			<a href="lista_locais.php">Listar Locais</a> |
-			<a href="lista_componentes.php">Listar Componentes</a> |
-			<a href="lista_invasoes.php">Listar Invasões</a>
+			<a class="link" href="lista_hackers.php">Listar Hackers</a> |
+			<a class="link" href="lista_locais.php">Listar Locais</a> |
+			<a class="link" href="lista_componentes.php">Listar Componentes</a> |
+			<a class="link" href="lista_invasoes.php">Listar Invasões</a>
 		
 		</div>
 		
