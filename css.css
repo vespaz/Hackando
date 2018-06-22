@@ -123,6 +123,22 @@ fieldset.filtro{
 	
 }
 
+fieldset.cadastro{
+	
+	border: 3px solid black;
+	border-radius: 10px;
+	max-width: 700px;
+	margin: 30px auto;
+	
+}
+
+
+legend{
+	
+	font-size: 35px;
+	
+}
+
 table{
 	
 	border: 2px solid black;
@@ -137,5 +153,12 @@ th, td{
 	border: 1px solid gray;
 	padding: 5px;
 	
+	
+}
+
+
+h1.erro{
+	
+	color: red;
 	
 }
