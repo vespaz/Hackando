@@ -30,7 +30,7 @@
 			$linha= mysqli_fetch_array($resultado);
 		?>
 		
-		<fieldset>
+		<fieldset class="cadastro">
 		
 			<legend>Alteração de dados</legend>
 		

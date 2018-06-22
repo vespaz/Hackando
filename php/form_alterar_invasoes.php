@@ -23,7 +23,7 @@
 			
 			$linha = mysqli_fetch_array($resultado);
 		?>
-		<fieldset>
+		<fieldset class="cadastro">
 			<form action="alterar_invasoes.php" method="post">
 				<label>Hacker que invadiu</label>
 				<input type="text" name="cod_hacker" value="<?=$linha['nome_hacker']?>" readonly/>

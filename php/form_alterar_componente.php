@@ -23,7 +23,7 @@
 			
 			$linha = mysqli_fetch_array($resultado);
 		?>
-		<fieldset>
+		<fieldset class="cadastro">
 			<form action="alterar_componente.php" method="post">				
 				<label>Componente:</label>
 				<input type="text" name="componente" value="<?=$linha["nome_componente"]?>" />
