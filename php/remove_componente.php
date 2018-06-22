@@ -5,6 +5,7 @@
 		<meta charset="utf-8" />
 		<title>Remover Componente</title>
 		
+		<link type="text/css" rel="stylesheet" href="../css.css" />
 	</head>
 	
 	<body class="corpo">
@@ -20,7 +21,7 @@
 			
 			$delete = "DELETE FROM componentes WHERE id_componente = '$id'";
 			
-			// echo $delete;
+			//echo $delete;
 			
 			
 			if(mysqli_query($link, $delete)){
@@ -28,9 +29,7 @@
 				header("Location: lista_componentes.php");
 				
 			}else {
-				
-				die(mysqli_error($link));
-				
+				echo "<h1 class='erro'>Não é possivel excluir esse componente pois ja existe uma invasão cadastrada utilizando-o</h1>";				
 			}
 			
 		?>

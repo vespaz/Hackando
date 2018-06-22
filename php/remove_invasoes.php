@@ -5,6 +5,7 @@
 		<meta charset="utf-8" />
 		<title>Remover Componente</title>
 		
+		<link type="text/css" rel="stylesheet" href="../css.css" />
 	</head>
 	
 	<body class="corpo">
