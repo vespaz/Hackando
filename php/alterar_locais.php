@@ -33,19 +33,19 @@
 			
 			
 			if (mysqli_query($link, $updatePais)){
-				echo "<h1>Alterado País</h1>";
+				header("Location: lista_locais.php");
 			}else{
 				die(mysqli_error($link));
 			}
 			
 			if (mysqli_query($link, $updateEstado)){
-				echo "<h1>Alterado Estado</h1>";
+				header("Location: lista_locais.php");
 			}else{
 				die(mysqli_error($link));
 			}
 			
 			if (mysqli_query($link, $updateCidade)){
-				echo "<h1>Alterado Cidade</h1>";
+				header("Location: lista_locais.php");
 			}else{
 				die(mysqli_error($link));
 			}

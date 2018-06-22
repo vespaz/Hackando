@@ -22,7 +22,7 @@
 			menu();
 		?>
 		
-		<fieldset>
+		<fieldset class="filtro">
 			<form action="lista_locais.php" method="post">
 				
 				<label>Filtrar por Nome País: </label>
@@ -54,14 +54,17 @@
 				
 					<option value="">:: Ordenar por ::</option>
 					
-					<option value="id_a_z">ID (Crescente)</option>
-					<option value="id_z_a">ID (Descrecente)</option>
+					<option value="id_crescente">ID (Crescente)</option>
+					<option value="id_descrecente">ID (Descrecente)</option>
 					
-					<option value="pai_a_z">País (A->Z)</option>
+					<option value="pais_a_z">País (A->Z)</option>
 					<option value="pais_z_a">País (Z->A)</option>
 					
 					<option value="estado_a_z">Estado (A->Z)</option>
 					<option value="estado_z_a">Estado (Z->A)</option>
+					
+					<option value="cidade_a_z">Cidade (A->Z)</option>
+					<option value="cidade_z_a">Cidade (Z->A)</option>
 					
 				</select>
 				
@@ -81,7 +84,105 @@
 			
 			<tbody>
 				<?php 
-					$select = "SELECT * FROM view_locais";
+				
+					$where = '';
+		
+					if( !empty($_POST["filtroPais"]) ){
+					
+						$letra = $_POST['filtroPais'];
+					
+						$where = "WHERE nome_pais LIKE '$letra%'";
+					
+					}
+					
+					if( !empty($_POST["filtroEstado"]) ){
+						
+						$letra = $_POST['filtroEstado'];
+						
+						if( $where != '' ){
+							
+							$where .= " AND nome_estado LIKE '$letra%'";
+							
+						}else{
+							
+							$where = "WHERE nome_estado LIKE '$letra%'";
+							
+						}
+						
+					}
+					
+					if( !empty($_POST["filtroCidade"]) ){
+						
+						$letra = $_POST['filtroCidade'];
+						
+						if( $where != '' ){
+							
+							$where .= " AND nome_cidade LIKE '$letra%'";
+							
+						}else{
+							
+							$where = "WHERE nome_cidade LIKE '$letra%'";
+							
+						}
+						
+					}
+					#########################################################################################################################
+					
+					$order = '';
+					
+					if( isset($_POST["ordenacaoLocL"]) || isset($_SESSION["local"]) ){
+					
+						if( isset($_POST["ordenacaoLocL"]) ){
+						
+							$_SESSION["local"] = $_POST["ordenacaoLocL"];
+						
+						}
+						
+						switch($_SESSION["local"]){
+						
+							case "id_crescente":
+								$order = " ORDER BY id_pais";
+							break;
+							
+							case "id_descrecente":
+								$order = " ORDER BY id_pais DESC";
+							break;
+								
+						//---------------------------------------------------------//
+							case "pais_a_z":
+								$order = " ORDER BY nome_pais";
+							break;
+							
+							case "pais_z_a":
+								$order = " ORDER BY nome_pais DESC";
+							break;
+								
+						//---------------------------------------------------------//
+							case "estado_a_z":
+								$order = " ORDER BY nome_estado";
+							break;
+								
+							case "estado_z_a":
+								$order = " ORDER BY nome_estado DESC";
+							break;
+								
+						//---------------------------------------------------------//
+							case "cidade_a_z":
+								$order = " ORDER BY nome_cidade";
+							break;
+							
+							case "cidade_z_a":
+								$order = " ORDER BY nome_cidade DESC";
+							break;
+							
+						}
+						
+					}
+					
+					#########################################################################################################################
+					
+					
+					$select = "SELECT * FROM view_locais $where $order";
 					
 					$resultado = mysqli_query($link, $select) or die(mysqli_error($link));
 					
@@ -92,7 +193,7 @@
 							echo "<td>" . $linha['nome_estado'] . "</td>";
 							echo "<td>" . $linha['nome_cidade'] . "</td>";
 							
-							echo "<td> <a href='form_altera_locais.php?id_pais=" . $linha['id_pais'] . "'>Editar</a></td>";
+							echo "<td> <a href='form_alterar_locais.php?id_pais=" . $linha['id_pais'] . "'>Editar</a></td>";
 							
 						echo "</tr>";
 					
