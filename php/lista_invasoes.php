@@ -13,7 +13,7 @@
 	
 		<meta charset="UTF-8" />
 		<title>Página de Listagem de Hackers</title>
-	
+		<link type="text/css" rel="stylesheet" href="../css.css" />
 	</head>
 	
 	<body>
@@ -22,8 +22,8 @@
 			menu();
 		?>
 		
-		<fieldset>
-			<form action="lista_hacker.php" method="post">
+		<fieldset class="filtro">
+			<form action="lista_invasoes.php" method="post">
 				
 				<label>Filtar por Nome Hacker: </label>
 				<input type="text" name="filtroNomeHacker" />
@@ -51,16 +51,16 @@
 			
 			<br />
 			
-			<!-- <form action="lista_invasoes.php" method="post" name="ordenarInvasoes">
+			<form action="lista_invasoes.php" method="post" name="ordenarInvasoes">
 				
 				<label>Ordenar</label>
 				
-				<select name="ordenacaoHacker" onchange="document.ordenarHacker.submit()">
+				<select name="ordenacaoInvasoes" onchange="document.ordenarInvasoes.submit()">
 				
 					<option value="">:: Ordenar por ::</option>
 					
-					<option value="id_a_z">ID (Crescente)</option>
-					<option value="id_z_a">ID (Descrecente)</option>
+					<option value="id_crescente">ID (Crescente)</option>
+					<option value="id_descrecente">ID (Descrecente)</option>
 					
 					<option value="nomeHacker_a_z">Nome Hacker (A->Z)</option>
 					<option value="nomeHacker_z_a">Nome Hacker (Z->A)</option>
@@ -76,7 +76,7 @@
 					
 				</select>
 				
-			</form>-->
+			</form>
 			
 		</fieldset>
 		
@@ -87,13 +87,131 @@
 					<th>Nome Componente</th>
 					<th>IP</th>
 					<th>Status</th>
-					<th>Ação</th>
+					<th colspan="2">Ação</th>
 				</tr>
 			</thead>
 			
 			<tbody>
 				<?php 
-					$select = "SELECT * FROM view_invasoes";
+					$where = '';
+		
+					if( !empty($_POST["filtroNomeHacker"]) ){
+					
+						$letra = $_POST['filtroNomeHacker'];
+					
+						$where = "WHERE nome_hacker LIKE '$letra%'";
+					
+					}
+					
+					if( !empty($_POST["filtroNomeComponente"]) ){
+						
+						$letra = $_POST['filtroNomeComponente'];
+						
+						if( $where != '' ){
+							
+							$where .= " AND nome_componente LIKE '$letra%'";
+							
+						}else{
+							
+							$where = "WHERE nome_componente LIKE '$letra%'";
+							
+						}
+						
+					}
+					
+					if( !empty($_POST["filtroIP"]) ){
+						
+						$letra = $_POST['filtroIP'];
+						
+						if( $where != '' ){
+							
+							$where .= " AND ip LIKE '$letra%'";
+							
+						}else{
+							
+							$where = "WHERE ip LIKE '$letra%'";
+							
+						}
+						
+					}
+					
+					if( !empty($_POST["filtroStatus"]) ){
+						
+						$letra = $_POST['filtroStatus'];
+						
+						if( $where != '' ){
+							
+							$where .= " AND status LIKE '$letra%'";
+							
+						}else{
+							
+							$where = "WHERE status LIKE '$letra%'";
+							
+						}
+						
+					}
+					#########################################################################################################################
+					
+					$order = '';
+					
+					if( isset($_POST["ordenacaoInvasoes"]) || isset($_SESSION["local"]) ){
+					
+						if( isset($_POST["ordenacaoInvasoes"]) ){
+						
+							$_SESSION["local"] = $_POST["ordenacaoInvasoes"];
+						
+						}
+						
+						switch($_SESSION["local"]){
+						
+							case "id_crescente":
+								$order = " ORDER BY id_invasoes";
+							break;
+							
+							case "id_descrecente":
+								$order = " ORDER BY id_invasoes DESC";
+							break;
+								
+						//---------------------------------------------------------//
+							case "nomeHacker_a_z":
+								$order = " ORDER BY nome_hacker";
+							break;
+							
+							case "nomeHacker_z_a":
+								$order = " ORDER BY nome_hacker DESC";
+							break;
+								
+						//---------------------------------------------------------//
+							case "nomeComponente_a_z":
+								$order = " ORDER BY nome_componente";
+							break;
+								
+							case "nomeComponente_z_a":
+								$order = " ORDER BY nome_componente DESC";
+							break;
+								
+						//---------------------------------------------------------//
+							case "ip_a_z":
+								$order = " ORDER BY ip";
+							break;
+							
+							case "ip_z_a":
+								$order = " ORDER BY ip DESC";
+							break;
+						//---------------------------------------------------------//
+							case "status_a_z":
+								$order = " ORDER BY status";
+							break;
+							
+							case "status_z_a":
+								$order = " ORDER BY status DESC";
+							break;
+						}
+						
+					}
+					
+					#########################################################################################################################
+					$select = "SELECT * FROM view_invasoes $where $order";
 					
 					$resultado = mysqli_query($link, $select) or die(mysqli_error($link));
 					
@@ -107,6 +225,7 @@
 							
 							
 							
+							echo "<td> <a href='form_alterar_invasoes.php?id_invasoes=" . $linha['id_invasoes'] . "'>Editar</a></td>";
 							echo "<td> <a href='remove_invasoes.php?id_invasoes=" . $linha['id_invasoes'] . "'>Excluir</a></td>";
 						echo "</tr>";
 					

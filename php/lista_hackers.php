@@ -22,7 +22,7 @@
 			menu();
 		?>
 		
-		<fieldset>
+		<fieldset class="filtro">
 			<form action="lista_hacker.php" method="post">
 				
 				<label>Filtrar por Codinome: </label>

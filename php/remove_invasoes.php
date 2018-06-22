@@ -14,10 +14,10 @@
 			include "conexao.php";
 			include "funcao.php";
 
-			$id = $_GET["id"];
+			$id = $_GET["id_invasoes"];
 			
 			
-			$delete = "DELETE FROM view_invasoes WHERE id_invasoes = '$id'";
+			$delete = "DELETE FROM invasoes WHERE id_invasoes = '$id'";
 			
 			echo $delete;
 			menu();
