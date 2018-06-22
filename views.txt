@@ -28,3 +28,15 @@ SELECT 	*
 	
 ----------------------------------------------------------------------------------------------------------------
 
+CREATE VIEW 
+			view_invasoes	AS
+			
+SELECT 	* 
+
+	FROM	invasoes INNER JOIN hackers
+	
+	ON invasoes.cod_hacker = hackers.id_hacker
+	
+	INNER JOIN componentes
+	
+	ON invasoes.cod_componente = componentes.id_componente; 
