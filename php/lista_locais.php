@@ -54,9 +54,6 @@
 				
 					<option value="">:: Ordenar por ::</option>
 					
-					<option value="id_crescente">ID (Crescente)</option>
-					<option value="id_descrecente">ID (Descrecente)</option>
-					
 					<option value="pais_a_z">País (A->Z)</option>
 					<option value="pais_z_a">País (Z->A)</option>
 					
@@ -139,16 +136,7 @@
 						}
 						
 						switch($_SESSION["local"]){
-						
-							case "id_crescente":
-								$order = " ORDER BY id_pais";
-							break;
 							
-							case "id_descrecente":
-								$order = " ORDER BY id_pais DESC";
-							break;
-								
-						//---------------------------------------------------------//
 							case "pais_a_z":
 								$order = " ORDER BY nome_pais";
 							break;

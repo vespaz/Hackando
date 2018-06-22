@@ -53,14 +53,11 @@
 				
 					<option value="">:: Ordenar por ::</option>
 					
-					<option value="id_crescente">ID (Crescente)</option>
-					<option value="id_descrecente">ID (Descrecente)</option>
-					
 					<option value="componente_a_z">Componente (A->Z)</option>
 					<option value="componente_z_a">Componente (Z->A)</option>
 					
-					<option value="end_a_z">Endereço IP (A->Z)</option>
-					<option value="end_z_a">Endereço IP (Z->A)</option>
+					<option value="end_a_z">Endereço IP (Crescente)</option>
+					<option value="end_z_a">Endereço IP (Decrecente)</option>
 					
 					<option value="loc_a_z">Localização (A->Z)</option>
 					<option value="loc_z_a">Localização (Z->A)</option>
@@ -131,15 +128,6 @@
 						
 						switch($_SESSION["local"]){
 						
-							case "id_crescente":
-								$order = " ORDER BY id_componente";
-							break;
-							
-							case "id_descrecente":
-								$order = " ORDER BY id_componente DESC";
-							break;
-								
-						//---------------------------------------------------------//
 							case "componente_a_z":
 								$order = " ORDER BY nome_componente";
 							break;

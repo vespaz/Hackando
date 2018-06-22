@@ -23,7 +23,7 @@
 		?>
 		
 		<fieldset class="filtro">
-			<form action="lista_hacker.php" method="post">
+			<form action="lista_hackers.php" method="post">
 				
 				<label>Filtrar por Codinome: </label>
 				<input type="text" name="filtroCodinome" />
@@ -41,7 +41,7 @@
 			
 			<br />
 			
-			<!-- <form action="lista_hacker.php" method="post" name="ordenarHacker">
+			<form action="lista_hackers.php" method="post" name="ordenarHacker">
 				
 				<label>Ordenar</label>
 				
@@ -49,18 +49,15 @@
 				
 					<option value="">:: Ordenar por ::</option>
 					
-					<option value="id_a_z">ID (Crescente)</option>
-					<option value="id_z_a">ID (Descrecente)</option>
-					
 					<option value="codinome_a_z">Codinome (A->Z)</option>
-					<option value="codinome_z_a">Codinome (Z->A)</option>
+					<option value="">Codinome (Z->A)</option>
 					
 					<option value="paradeiro_a_z">Paradeiro (A->Z)</option>
 					<option value="paradeiro_z_a">Paradeiro (Z->A)</option>
 					
 				</select>
 				
-			</form>-->
+			</form>
 			
 		</fieldset>
 		
@@ -73,8 +70,70 @@
 			</thead>
 			
 			<tbody>
-				<?php 
-					$select = "SELECT * FROM hackers";
+				<?php
+					$where = '';
+		
+					if( !empty($_POST["filtroCodinome"]) ){
+					
+						$letra = $_POST['filtroCodinome'];
+					
+						$where = "WHERE nome_hacker LIKE '$letra%'";
+					
+					}
+					
+					if( !empty($_POST["filtroParadeiro"]) ){
+						
+						$letra = $_POST['filtroParadeiro'];
+						
+						if( $where != '' ){
+							
+							$where .= " AND paradeiro LIKE '$letra%'";
+							
+						}else{
+							
+							$where = "WHERE paradeiro LIKE '$letra%'";
+							
+						}
+						
+					}
+					
+					#########################################################################################################################
+					
+					$order = '';
+					
+					if( isset($_POST["ordenacaoHacker"]) || isset($_SESSION["local"]) ){
+					
+						if( isset($_POST["ordenacaoHacker"]) ){
+						
+							$_SESSION["local"] = $_POST["ordenacaoHacker"];
+						
+						}
+						
+						switch($_SESSION["local"]){
+						
+							
+							case "codinome_a_z":
+								$order = " ORDER BY nome_hacker";
+							break;
+							
+							case "codinome_z_a":
+								$order = " ORDER BY nome_hacker DESC";
+							break;
+								
+						//---------------------------------------------------------//
+							case "paradeiro_a_z":
+								$order = " ORDER BY paradeiro";
+							break;
+								
+							case "paradeiro_z_a":
+								$order = " ORDER BY paradeiro DESC";
+							break;
+								
+						
+						}
+						
+					}
+					$select = "SELECT * FROM hackers $where $order";
 					
 					$resultado = mysqli_query($link, $select) or die(mysqli_error($link));
 					

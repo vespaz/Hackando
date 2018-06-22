@@ -59,17 +59,14 @@
 				
 					<option value="">:: Ordenar por ::</option>
 					
-					<option value="id_crescente">ID (Crescente)</option>
-					<option value="id_descrecente">ID (Descrecente)</option>
-					
 					<option value="nomeHacker_a_z">Nome Hacker (A->Z)</option>
 					<option value="nomeHacker_z_a">Nome Hacker (Z->A)</option>
 					
 					<option value="nomeComponente_a_z">Nome Componente (A->Z)</option>
 					<option value="nomeComponente_z_a">Nome Componente (Z->A)</option>
 					
-					<option value="ip_a_z">IP (A->Z)</option>
-					<option value="ip_z_a">IP (Z->A)</option>
+					<option value="ip_a_z">IP (Crescente)</option>
+					<option value="ip_z_a">IP (Decrecente)</option>
 					
 					<option value="status_a_z">Status (A->Z)</option>
 					<option value="status_z_a">Status (Z->A)</option>
@@ -164,15 +161,7 @@
 						
 						switch($_SESSION["local"]){
 						
-							case "id_crescente":
-								$order = " ORDER BY id_invasoes";
-							break;
 							
-							case "id_descrecente":
-								$order = " ORDER BY id_invasoes DESC";
-							break;
-								
-						//---------------------------------------------------------//
 							case "nomeHacker_a_z":
 								$order = " ORDER BY nome_hacker";
 							break;
