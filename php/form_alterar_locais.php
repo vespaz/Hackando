@@ -34,7 +34,7 @@
 		
 			<legend>Alteração de dados</legend>
 		
-			<form action="lista_locais.php" method="post" >
+			<form action="alterar_locais.php" method="post" >
 			
 				<label>Nome do País</label>
 				<input type="text" name="pais" value="<?= $linha["nome_pais"]?>" />
