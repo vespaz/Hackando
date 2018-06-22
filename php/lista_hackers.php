@@ -50,7 +50,7 @@
 					<option value="">:: Ordenar por ::</option>
 					
 					<option value="codinome_a_z">Codinome (A->Z)</option>
-					<option value="">Codinome (Z->A)</option>
+					<option value="codinome_z_a">Codinome (Z->A)</option>
 					
 					<option value="paradeiro_a_z">Paradeiro (A->Z)</option>
 					<option value="paradeiro_z_a">Paradeiro (Z->A)</option>
