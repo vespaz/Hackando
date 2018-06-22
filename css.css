@@ -1,5 +1,141 @@
+body{
+	
+	margin: 20px 100pt;
+	text-align: center;
+	
+}
+
 fieldset{
 
 	margin-top: 25px;
 
+}
+
+div.label, div.input{
+	
+	display: inline-block;
+	
+}
+
+div.label{
+	
+	text-align: right;
+	
+}
+
+div.input{
+	
+	width: 150px;
+	
+}
+
+
+
+
+
+a{
+	
+	color: blue;
+	text-decoration: none;
+	font-size: 20px;
+	
+}
+
+a.link:hover{
+	
+	transition: 1.5s;
+	border: 1px solid black;
+	border-radius: 13px;
+	padding: 10px;
+	font-size: 25px;
+	background-color: #CC00CC;
+	color: white;
+	margin-top: 15px;
+	margin-bottom: 15px;
+	
+}
+
+a.link_r:hover{
+	
+	transition: 0.5s;
+	border: 1px solid black;
+	border-radius: 13px;
+	padding: 10px;
+	font-size: 25px;
+	background-color: #FF0000;
+	color: white;
+	margin-top: 15px;
+	margin-bottom: 15px;
+	
+}
+
+a.link_i:hover{
+	
+	transition: 0.5s;
+	border: 1px solid black;
+	border-radius: 13px;
+	padding: 10px;
+	font-size: 25px;
+	background-color: #00FF00;
+	color: black;
+	margin-top: 15px;
+	margin-bottom: 15px;
+	
+}
+
+a.link_c{
+	
+	color: red;
+	
+}
+
+a.locais{
+	
+	font-size: 25px;
+	color: #006400;
+	
+}
+
+a.locais:hover{
+	
+	transition: 2s;
+	border: 1px solid black;
+	border-radius: 13px;
+	padding: 10px;
+	font-size: 35px;
+	background-color: #3366FF;
+	color: white;
+	margin-top: 25px;
+	margin-bottom: 25px;
+	
+}
+
+
+
+
+
+fieldset.filtro{
+	
+	border: 3px solid black;
+	border-radius: 10px;
+	max-width: 250px;
+	margin: 30px auto;
+	
+}
+
+table{
+	
+	border: 2px solid black;
+	text-align: center;
+	margin: 0 auto;
+	font-size: 25px;
+	
+}
+
+th, td{
+	
+	border: 1px solid gray;
+	padding: 5px;
+	
+	
 }
